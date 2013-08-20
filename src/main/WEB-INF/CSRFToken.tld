@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<taglib xmlns="http://java.sun.com/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-jsptaglibrary_2_1.xsd"
+        version="2.1">
+    <tlib-version>1.0</tlib-version>
+    <short-name>csrf</short-name>
+    <uri>http://github.com/greengerong/taglibs/csrf</uri>
+    <tag>
+        <name>csrfToken</name>
+        <tag-class>com.github.greengerong.CSRFTokenTag</tag-class>
+        <body-content>empty</body-content>
+        <attribute>
+            <name>is4Form</name>
+            <required>false</required>
+        </attribute>
+    </tag>
+</taglib>

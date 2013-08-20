@@ -1,1 +1,6 @@
-This file was created by IntelliJ IDEA 12.1.4 for binding GitHub repository
+
+ 1: web.xml 注册 tag
+    <taglib>
+        <taglib-uri>/dateConvert</taglib-uri>  
+        <taglib-location>dateConvert.tld</taglib-location>  
+    </taglib>
