@@ -3,7 +3,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.github.greengerong</groupId>
-    <artifactId>green.security</artifactId>
+    <artifactId>green.security4angular</artifactId>
     <version>1.0-SNAPSHOT</version>
     <packaging>jar</packaging>
 

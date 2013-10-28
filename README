@@ -1,6 +1,0 @@
-
- 1: web.xml 注册 tag
-    <taglib>
-        <taglib-uri>http://github.com/greengerong/taglibs/csrf</taglib-uri>
-        <taglib-location>dateConvert.tld</taglib-location>  
-    </taglib>
