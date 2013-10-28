@@ -4,6 +4,7 @@ import javax.servlet.FilterConfig;
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
 import java.util.Arrays;
 import java.util.UUID;
 
@@ -27,25 +28,39 @@ public class DefaultCSRFService implements CSRFService {
     @Override
     public void handle(HttpServletRequest request, HttpServletResponse response) {
 
+        final boolean shouldHandle = isHandle(request);
         final Object orginToken = request.getSession(true).getAttribute(XSRF_TOKEN_SESSION_KEY);
-        if (orginToken == null) {
+        if (orginToken == null && !shouldHandle) {
             responseNewToken(request, response);
             return;
         }
 
-        if (!isValidXSRFToken(request, orginToken)) {
-            responseNewToken(request, response);
-            throw new XSRFRuntimeException("XSRF token is not valid.");
+        if (shouldHandle) {
+            if (isValidXSRFToken(request, orginToken)) {
+                responseNewToken(request, response);
+                return;
+            }
+
+            try {
+                response.sendError(403, "XSRF token is not valid.");
+            } catch (IOException e) {
+                throw new XSRFRuntimeException(e);
+            }
+
+
         }
     }
+
 
     private void responseNewToken(HttpServletRequest request, HttpServletResponse response) {
         final String token = UUID.randomUUID().toString();
         request.getSession(true).setAttribute(XSRF_TOKEN_SESSION_KEY, token);
-        response.addCookie(new Cookie(XSRF_TOKEN_COOKIE_KEY, token));
+        final Cookie tokenCookie = new Cookie(XSRF_TOKEN_COOKIE_KEY, token);
+        tokenCookie.setPath("/");
+        response.addCookie(tokenCookie);
     }
 
     private boolean isValidXSRFToken(HttpServletRequest request, Object orginToken) {
-        return isHandle(request) ? !orginToken.equals(request.getHeader(XSRF_TOKEN_HEADER_KEY)) : true;
+        return orginToken != null && orginToken.equals(request.getHeader(XSRF_TOKEN_HEADER_KEY));
     }
 }
