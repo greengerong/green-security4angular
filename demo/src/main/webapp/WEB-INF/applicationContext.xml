@@ -28,6 +28,7 @@
 
     <bean id="jacksonMessageConverter"
           class="com.github.greengerong.xss.MappingJacksonHttpMessageConverterEx">
+        <!--<property name="prefixJson" value=""></property> you can ignore prefix-->
     </bean>
     <bean class="org.springframework.web.servlet.mvc.annotation.AnnotationMethodHandlerAdapter">
         <property name="messageConverters">
