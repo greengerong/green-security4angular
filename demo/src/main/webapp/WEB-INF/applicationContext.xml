@@ -26,12 +26,15 @@
         </property>
     </bean>
 
-    <bean id="jacksonMessageConverter" class="org.springframework.http.converter.json.MappingJacksonHttpMessageConverter"></bean>
+    <bean id="jacksonMessageConverter"
+          class="com.github.greengerong.xss.MappingJacksonHttpMessageConverterEx">
+    </bean>
     <bean class="org.springframework.web.servlet.mvc.annotation.AnnotationMethodHandlerAdapter">
         <property name="messageConverters">
             <list>
                 <ref bean="jacksonMessageConverter"/>
             </list>
         </property>
+        <property name="order" value="2"></property>
     </bean>
 </beans>

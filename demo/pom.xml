@@ -12,6 +12,7 @@
         <spring.version>3.0.5.RELEASE</spring.version>
         <green.security4angular.version>1.0-SNAPSHOT</green.security4angular.version>
         <jackson-version>1.8.5</jackson-version>
+        <log4j.version>1.2.9</log4j.version>
     </properties>
     <dependencies>
         <dependency>
@@ -30,18 +31,20 @@
             <artifactId>spring-webmvc</artifactId>
             <version>${spring.version}</version>
         </dependency>
-
+        <dependency>
+            <groupId>log4j</groupId>
+            <artifactId>log4j</artifactId>
+            <version>${log4j.version}</version>
+        </dependency>
         <dependency>
             <groupId>org.codehaus.jackson</groupId>
             <artifactId>jackson-mapper-asl</artifactId>
             <version>${jackson-version}</version>
-            <scope>compile</scope>
         </dependency>
         <dependency>
             <groupId>org.codehaus.jackson</groupId>
             <artifactId>jackson-core-asl</artifactId>
             <version>${jackson-version}</version>
-            <scope>compile</scope>
         </dependency>
     </dependencies>
     <build>

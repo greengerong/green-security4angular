@@ -1,4 +1,4 @@
-package com.github.greengerong;
+package com.github.greengerong.csrf;
 
 
 public class XSRFRuntimeException extends RuntimeException {

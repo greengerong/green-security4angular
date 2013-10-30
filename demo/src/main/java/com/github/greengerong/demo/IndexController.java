@@ -29,8 +29,8 @@ public class IndexController {
 
     @RequestMapping(value = "process/{age}", method = RequestMethod.DELETE)
     @ResponseBody
-    public int process2(@PathVariable("age") int age) {
-        return age;
+    public Person process2(@PathVariable("age") int age) {
+        return new Person(age);
     }
 
     @RequestMapping(value = "process/{age}", method = RequestMethod.GET)

@@ -1,4 +1,4 @@
-package com.github.greengerong;
+package com.github.greengerong.csrf;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;

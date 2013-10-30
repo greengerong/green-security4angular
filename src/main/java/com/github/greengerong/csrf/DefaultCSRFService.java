@@ -1,4 +1,4 @@
-package com.github.greengerong;
+package com.github.greengerong.csrf;
 
 import javax.servlet.FilterConfig;
 import javax.servlet.http.Cookie;
@@ -46,8 +46,6 @@ public class DefaultCSRFService implements CSRFService {
             } catch (IOException e) {
                 throw new XSRFRuntimeException(e);
             }
-
-
         }
     }
 
