@@ -27,6 +27,22 @@ public class MappingJacksonHttpMessageConverterEx extends AbstractHttpMessageCon
 
     private ObjectMapper objectMapper = new ObjectMapper();
 
+    // angualr $http code
+//    var JSON_START = /^\s*(\[|\{[^\{])/,
+//        JSON_END = /[\}\]]\s*$/,
+//            PROTECTION_PREFIX = /^\)\]\}',?\n/;
+//
+//    var $config = this.defaults = {
+//            // transform incoming response data
+//            transformResponse: [function(data) {
+//        if (isString(data)) {
+//            // strip json vulnerability protection prefix
+//            data = data.replace(PROTECTION_PREFIX, '');
+//            if (JSON_START.test(data) && JSON_END.test(data))
+//                data = fromJson(data, true);
+//        }
+//        return data;
+//    }],
     private String prefixJson = ")]}',\n";
 
 
